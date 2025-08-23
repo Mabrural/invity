@@ -76,17 +76,16 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $guest->name }}</td>
-                                <td onclick="copyToClipboard('{{ url('u/' . $guest->slug) }}')" style="cursor:pointer;"
-                                    title="Klik untuk salin">
+                                <td onclick="copyToClipboard('{{ url('u/' . $guest->slug) }}'); alert('Link berhasil disalin!');"
+                                    style="cursor:pointer;" title="Klik untuk salin">
                                     {{ url('u/' . $guest->slug) }}
                                 </td>
-
 
                                 <td class="text-center">
                                     <!-- Tombol Salin -->
                                     <button type="button"
                                         class="btn btn-outline-primary btn-sm rounded-pill px-3 me-1 shadow-sm"
-                                        onclick="copyToClipboard('{{ url('u/' . $guest->slug) }}')" title="Salin Link">
+                                        onclick="copyToClipboard('{{ url('u/' . $guest->slug) }}'); alert('Link berhasil disalin!');"  title="Salin Link">
                                         <i class="fas fa-copy me-1"></i> Salin
                                     </button>
 
