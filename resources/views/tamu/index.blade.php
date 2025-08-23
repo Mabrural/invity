@@ -76,16 +76,17 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $guest->name }}</td>
-                                <td onclick="copyToClipboard('{{ url($guest->slug) }}')" style="cursor:pointer;"
+                                <td onclick="copyToClipboard('{{ url('u/' . $guest->slug) }}')" style="cursor:pointer;"
                                     title="Klik untuk salin">
-                                    {{ url($guest->slug) }}
+                                    {{ url('u/' . $guest->slug) }}
                                 </td>
+
 
                                 <td class="text-center">
                                     <!-- Tombol Salin -->
                                     <button type="button"
                                         class="btn btn-outline-primary btn-sm rounded-pill px-3 me-1 shadow-sm"
-                                        onclick="copyToClipboard('{{ url($guest->slug) }}')" title="Salin Link">
+                                        onclick="copyToClipboard('{{ url('u/' . $guest->slug) }}')" title="Salin Link">
                                         <i class="fas fa-copy me-1"></i> Salin
                                     </button>
 
@@ -117,28 +118,14 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                Swal.fire({
-                    toast: true,
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Link berhasil disalin!',
-                    showConfirmButton: false,
-                    timer: 2000
-                });
+                alert("Link berhasil disalin: " + text);
             }).catch(err => {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Gagal menyalin link!'
-                });
+                console.error('Gagal menyalin: ', err);
             });
         }
     </script>
-
 
 @endsection

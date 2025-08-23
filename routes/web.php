@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +63,8 @@ Route::prefix('events/{event_id}/guests')->group(function () {
 //     return view('tamu.index');
 // })->middleware(['auth', 'verified'])->name('tamu');
 Route::resource('tamu', GuestController::class);
+
+Route::get('/u/{slug}', [InvitationController::class, 'show'])->name('invitation.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

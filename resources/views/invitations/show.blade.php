@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invity - Undangan Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            background-color: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        .landing-page {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+
+        .content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .to-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #d4af37;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-text {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-open {
+            background: linear-gradient(to right, #d4af37, #f5e9c6);
+            color: #0a0a0a;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin-top: 20px;
+        }
+
+        .btn-open:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .invitation-page {
+            min-height: 100vh;
+            background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .invitation-content {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #d4af37;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: scaleIn 0.8s ease-in-out;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #f5e9c6;
+        }
+
+        .details {
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .detail-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .detail-text {
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .note {
+            font-style: italic;
+            margin-top: 30px;
+            color: #f5e9c6;
+            font-size: 16px;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .btn-back:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Tombol WhatsApp */
+        .btn-whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto 10px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-whatsapp i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .event-photo {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .event-photo img {
+            max-width: 100%;
+            height: 60%;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .to-name {
+                font-size: 28px;
+            }
+
+            .title {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .detail-text {
+                font-size: 16px;
+            }
+
+            .invitation-content {
+                padding: 30px 20px;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .btn-whatsapp,
+            .btn-back {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        {{-- <div class="logo">INVITY</div> --}}
+        <div class="content">
+            <br>
+            <p class="mb-2">Kepada Yth. Bapak / Ibu / Saudara/i:</p><br>
+            <h1 class="to-name"> {{ $guest->name }}</h1>
+            <p class="welcome-text text-sm">
+                Kami dengan penuh hormat mengundang Anda untuk hadir dalam acara spesial kami.
+                Mohon buka undangan di bawah ini untuk informasi lebih lanjut.
+            </p>
+            <button class="btn-open" onclick="openInvitation()">
+                Buka Undangan <i class="fas fa-envelope-open-text" style="margin-left: 10px;"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Invitation Page -->
+    <div class="invitation-page" id="invitationPage">
+        <div class="invitation-content">
+            <h1 class="title">{{ $guest->event->event_name_1 }}</h1>
+            @if (!empty($guest->event->event_photo_1))
+                <div class="event-photo">
+                    <img src="{{ asset('storage/' . $guest->event->event_photo_1) }}" alt="Foto Event 1">
+                </div>
+            @endif
+            <p class="subtitle">{{ $guest->event->event_name_2 }}</p>
+            @if (!empty($guest->event->event_photo_2))
+                <div class="event-photo">
+                    <img src="{{ asset('storage/' . $guest->event->event_photo_2) }}" alt="Foto Event 2">
+                </div>
+            @endif
+
+            <div class="details">
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="detail-text">
+                        <strong>Hari & Tanggal</strong><br>
+                        {{ $guest->event->event_date ? \Carbon\Carbon::parse($guest->event->event_date)->translatedFormat('l, d F Y') : 'Tanggal belum ditentukan' }}
+                    </div>
+
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="detail-text">
+                        <strong>Waktu</strong><br>
+                        {{ $guest->event->event_date ? \Carbon\Carbon::parse($guest->event->event_date)->translatedFormat('H:i') : 'Waktu belum ditentukan' }}
+                        - Selesai
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="detail-text">
+                        <strong>Tempat</strong><br>
+                        {{ $guest->event->location ?? 'Lokasi belum ditentukan' }}
+                    </div>
+                </div>
+
+                @if (!empty($guest->event->dresscode))
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="detail-text">
+                            <strong>Dress Code</strong><br>
+                            {{ $guest->event->dresscode }}
+                        </div>
+                    </div>
+                @endif
+            </div>
+
+            <p class="note">
+                *{{ $guest->event->other_information ?? 'tanggal tertentu' }}
+            </p>
+
+            <!-- Tombol Konfirmasi WhatsApp -->
+            <button class="btn-whatsapp" onclick="confirmAttendance()">
+                <i class="fab fa-whatsapp"></i> Konfirmasi Kehadiran
+            </button>
+
+            <!-- Tombol Lihat Lokasi -->
+            @if (!empty($guest->event->link_googlemaps))
+                <a href="{{ $guest->event->link_googlemaps }}" target="_blank" class="btn-whatsapp"
+                    style="background: linear-gradient(to right, #4285F4, #34A853); text-decoration:none;">
+                    <i class="fas fa-map-marked-alt"></i> Lihat Lokasi
+                </a>
+            @endif
+
+            <div class="button-container">
+                <button class="btn-back" onclick="goBack()">
+                    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Kembali
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openInvitation() {
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('invitationPage').style.display = 'flex';
+        }
+
+        function goBack() {
+            document.getElementById('invitationPage').style.display = 'none';
+            document.getElementById('landingPage').style.display = 'flex';
+        }
+
+        function confirmAttendance() {
+            // Nomor WA admin event (ambil dari event kalau disimpan di DB)
+            const phoneNumber = '{{ $guest->event->no_wa_confirmation ?? '6281234567890' }}';
+
+            // Pesan default personalisasi
+            const message = encodeURIComponent(
+                `Halo! Saya, {{ $guest->name }}, ingin mengonfirmasi kehadiran untuk acara {{ $guest->event->event_name_1 }} dan {{ $guest->event->event_name_2 }} pada {{ $guest->event->event_date ?? 'tanggal yang ditentukan' }}.`
+            );
+
+            window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
+        }
+    </script>
+</body>
+
+</html>
