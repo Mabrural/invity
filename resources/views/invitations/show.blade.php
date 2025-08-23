@@ -227,6 +227,49 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
+        /* Kontrol Musik */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(212, 175, 55, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            background: rgba(212, 175, 55, 1);
+        }
+
+        .music-control i {
+            color: #0a0a0a;
+            font-size: 20px;
+        }
+
+        .music-control.paused i.fa-play {
+            display: block;
+        }
+
+        .music-control.paused i.fa-pause {
+            display: none;
+        }
+
+        .music-control.playing i.fa-play {
+            display: none;
+        }
+
+        .music-control.playing i.fa-pause {
+            display: block;
+        }
 
         @keyframes fadeIn {
             from {
@@ -281,14 +324,32 @@
             .btn-back {
                 width: 100%;
             }
+
+            .music-control {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Element Audio -->
+    <audio id="backgroundMusic" loop>
+        <source src="{{ asset('assets/perfect.mp3') }}" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Kontrol Musik -->
+    <div class="music-control paused" id="musicControl">
+        <i class="fas fa-play" id="playIcon"></i>
+        <i class="fas fa-pause" id="pauseIcon"></i>
+    </div>
+
     <!-- Landing Page -->
     <div class="landing-page" id="landingPage">
-        {{-- <div class="logo">INVITY</div> --}}
         <div class="content">
             <br>
             <p class="mb-2">Kepada Yth. Bapak / Ibu / Saudara/i:</p><br>
@@ -391,9 +452,47 @@
     </div>
 
     <script>
+        // Variabel global untuk mengontrol musik
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const musicControl = document.getElementById('musicControl');
+        let isMusicPlaying = false;
+
+        // Fungsi untuk memutar musik
+        function playMusic() {
+            const playPromise = backgroundMusic.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Musik berhasil diputar
+                    isMusicPlaying = true;
+                    musicControl.classList.remove('paused');
+                    musicControl.classList.add('playing');
+                }).catch(error => {
+                    // Autoplay dicegah oleh browser
+                    console.log("Autoplay dicegah: ", error);
+                    musicControl.style.display = 'flex'; // Tampilkan kontrol musik
+                });
+            }
+        }
+
+        // Fungsi untuk menghentikan musik
+        function pauseMusic() {
+            backgroundMusic.pause();
+            isMusicPlaying = false;
+            musicControl.classList.remove('playing');
+            musicControl.classList.add('paused');
+        }
+
+        // Fungsi untuk membuka undangan dan memutar musik
         function openInvitation() {
             document.getElementById('landingPage').style.display = 'none';
             document.getElementById('invitationPage').style.display = 'flex';
+
+            // Mulai memutar musik setelah interaksi pengguna
+            playMusic();
+
+            // Tampilkan kontrol musik
+            musicControl.style.display = 'flex';
         }
 
         function goBack() {
@@ -412,6 +511,23 @@
 
             window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
         }
+
+        // Event listener untuk kontrol musik
+        musicControl.addEventListener('click', function() {
+            if (isMusicPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        });
+
+        // Sembunyikan kontrol musik secara default
+        window.onload = function() {
+            musicControl.style.display = 'none';
+
+            // Coba set volume ke level yang sesuai (opsional)
+            backgroundMusic.volume = 0.7; // 70% volume
+        };
     </script>
 </body>
 

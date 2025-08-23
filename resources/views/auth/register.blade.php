@@ -361,7 +361,10 @@
                     </label>
                 </div>
 
-                <button type="submit" class="form-submit">Daftar Sekarang</button>
+                <button type="button" class="form-submit" onclick="alert('Sistem ini sedang dalam masa pengembangan')">
+                    Daftar Sekarang
+                </button>
+
 
                 <div class="form-footer">
                     <p>Sudah punya akun? <a href="{{ route('login') }}">Masuk di sini</a></p>
