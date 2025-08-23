@@ -15,7 +15,7 @@
                 <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="stat-info">
-                <h3>{{ $totalAcara ?? 0 }}</h3>
+                <h3>{{ $totalEvents ?? 0 }}</h3>
                 <p>Total Acara</p>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <i class="fas fa-users"></i>
             </div>
             <div class="stat-info">
-                <h3>{{ $totalTamu ?? 0 }}</h3>
+                <h3>{{ $totalGuests ?? 0 }}</h3>
                 <p>Total Tamu</p>
             </div>
         </div>

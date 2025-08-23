@@ -4,6 +4,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GuestController;
+use App\Models\Event;
+use App\Models\Guest;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/storage/{folder}/{filename}', function ($folder, $filename) {
@@ -27,7 +29,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $totalEvents = Event::count();  
+    $totalGuests = Guest::count();  
+
+    return view('dashboard', [
+        'totalEvents' => $totalEvents,
+        'totalGuests' => $totalGuests,
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::get('/acara', function () {
