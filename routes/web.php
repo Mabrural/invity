@@ -62,7 +62,7 @@ Route::prefix('events/{event_id}/guests')->group(function () {
 // Route::get('/tamu', function () {
 //     return view('tamu.index');
 // })->middleware(['auth', 'verified'])->name('tamu');
-Route::resource('tamu', GuestController::class);
+Route::resource('tamu', GuestController::class)->middleware(['auth', 'verified']);
 
 Route::get('/u/{slug}', [InvitationController::class, 'show'])->name('invitation.show');
 
