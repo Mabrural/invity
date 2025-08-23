@@ -27,7 +27,7 @@
 
         .landing-page {
             min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{ asset('assets/opening.jpg') }}') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -352,14 +352,15 @@
     <div class="landing-page" id="landingPage">
         <div class="content">
             <br>
-            <p class="mb-2">Kepada Yth. Bapak / Ibu / Saudara/i:</p><br>
-            <h1 class="to-name"> {{ $guest->name }}</h1>
+            <p class="mb-2">Dear Mr. / Mrs. / Brother / Sister,</p><br>
+            <h1 class="to-name" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                {{ $guest->name }}</h1>
             <p class="welcome-text text-sm">
-                Kami dengan penuh hormat mengundang Anda untuk hadir dalam acara spesial kami.
-                Mohon buka undangan di bawah ini untuk informasi lebih lanjut.
+                We are honored to invite you to attend our special event. Please open the invitation below for more
+                information.
             </p>
             <button class="btn-open" onclick="openInvitation()">
-                Buka Undangan <i class="fas fa-envelope-open-text" style="margin-left: 10px;"></i>
+                Open Invitation <i class="fas fa-envelope-open-text" style="margin-left: 10px;"></i>
             </button>
         </div>
     </div>
@@ -386,7 +387,7 @@
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <div class="detail-text">
-                        <strong>Hari & Tanggal</strong><br>
+                        <strong>Day & Date</strong><br>
                         {{ $guest->event->event_date ? \Carbon\Carbon::parse($guest->event->event_date)->translatedFormat('l, d F Y') : 'Tanggal belum ditentukan' }}
                     </div>
 
@@ -397,9 +398,9 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <div class="detail-text">
-                        <strong>Waktu</strong><br>
-                        {{ $guest->event->event_date ? \Carbon\Carbon::parse($guest->event->event_date)->translatedFormat('H:i') : 'Waktu belum ditentukan' }}
-                        - Selesai
+                        <strong>Time</strong><br>
+                        6:00 PM - 7.00 PM : Blessing Ceremony <br>
+                        7.00 PM - 10.00 PM : Reception
                     </div>
                 </div>
 
@@ -408,7 +409,7 @@
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="detail-text">
-                        <strong>Tempat</strong><br>
+                        <strong>Place</strong><br>
                         {{ $guest->event->location ?? 'Lokasi belum ditentukan' }}
                     </div>
                 </div>
@@ -432,20 +433,20 @@
 
             <!-- Tombol Konfirmasi WhatsApp -->
             <button class="btn-whatsapp" onclick="confirmAttendance()">
-                <i class="fab fa-whatsapp"></i> Konfirmasi Kehadiran
+                <i class="fab fa-whatsapp"></i> Confirm Attendance
             </button>
 
             <!-- Tombol Lihat Lokasi -->
             @if (!empty($guest->event->link_googlemaps))
                 <a href="{{ $guest->event->link_googlemaps }}" target="_blank" class="btn-whatsapp"
                     style="background: linear-gradient(to right, #4285F4, #34A853); text-decoration:none;">
-                    <i class="fas fa-map-marked-alt"></i> Lihat Lokasi
+                    <i class="fas fa-map-marked-alt"></i> View Location
                 </a>
             @endif
 
             <div class="button-container">
                 <button class="btn-back" onclick="goBack()">
-                    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Kembali
+                    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Go Back
                 </button>
             </div>
         </div>
@@ -506,8 +507,9 @@
 
             // Pesan default personalisasi
             const message = encodeURIComponent(
-                `Halo! Saya, {{ $guest->name }}, ingin mengonfirmasi kehadiran untuk acara {{ $guest->event->event_name_1 }} dan {{ $guest->event->event_name_2 }} pada {{ $guest->event->event_date ?? 'tanggal yang ditentukan' }}.`
+                `Halo Bu... Saya, {{ $guest->name }}, bersedia hadir pada acara {{ $guest->event->event_name_1 }} - {{ $guest->event->event_name_2 }}.`
             );
+
 
             window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
         }
