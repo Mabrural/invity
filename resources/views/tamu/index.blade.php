@@ -309,27 +309,31 @@
 
         // Fungsi untuk menyalin pesan bagikan
         function copyShareMessage() {
-            const shareText = `${currentShareData.eventName1} - ${currentShareData.eventName2}
+    const shareText = `
+Shalom,
 
-Dear Tamu Undangan,
+We are grateful for God's goodness in our lives.
+With all due respect, we would like to invite you, ladies and gentlemen;
 
-Salam Sejahtera Bagi Kita Semua. Tuhan membuat segala sesuatu indah pada waktunya. Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i: ${currentShareData.guestName} untuk menghadiri acara kami.
+${currentShareData.guestName}
 
-Berikut link undangan Anda:
+Here is our invitation link:
+
 ${currentShareData.invitationLink}
 
-Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
-Terima Kasih.
+It would be an honor and pleasure for us if you could attend and join our celebration event.
 
-Panitia ${currentShareData.eventName1}`;
+Sanjeev & Regina
+`;
 
-            navigator.clipboard.writeText(shareText).then(() => {
-                alert('Pesan undangan berhasil disalin!');
-            }).catch(err => {
-                console.error('Gagal menyalin teks: ', err);
-                alert('Gagal menyalin pesan. Silakan coba manual.');
-            });
-        }
+    navigator.clipboard.writeText(shareText).then(() => {
+        alert('Pesan undangan berhasil disalin!');
+    }).catch(err => {
+        console.error('Gagal menyalin teks: ', err);
+        alert('Gagal menyalin pesan. Silakan coba manual.');
+    });
+}
+
 
         // Fungsi untuk berbagi via WhatsApp
         function shareViaWhatsApp() {
