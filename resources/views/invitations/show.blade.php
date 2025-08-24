@@ -163,7 +163,7 @@
             text-align: center;
             max-width: 500px;
             margin: 0 auto 30px;
-            color: gold;
+            color: rgb(212, 178, 103);
         }
 
         .detail-item {
@@ -178,7 +178,7 @@
         .note {
             font-style: italic;
             margin-top: 30px;
-            color: gold;
+            color: rgb(212, 178, 103);
             font-size: 14px;
         }
 
@@ -200,7 +200,7 @@
 
         /* Tombol WhatsApp */
         .btn-whatsapp {
-            background: #8a6708;
+            background: rgb(212, 178, 103);
             color: white;
             border: none;
             padding: 15px 30px;
@@ -457,7 +457,7 @@
             <!-- Tombol Lihat Lokasi -->
             @if (!empty($guest->event->link_googlemaps))
                 <a href="{{ $guest->event->link_googlemaps }}" target="_blank" class="btn-whatsapp"
-                    style="background: #8a6708; text-decoration:none;">
+                    style="background: rgb(212, 178, 103); text-decoration:none;">
                     <i class="fas fa-map-marked-alt"></i> View Location
                 </a>
             @endif
