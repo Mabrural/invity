@@ -5,15 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGINA & SANJEEV</title>
-    
-    <!-- Meta Tags untuk WhatsApp Preview -->
-    <meta property="og:title" content="Undangan Pernikahan REGINA & SANJEEV">
-    <meta property="og:description" content="Kami mengundang Anda untuk merayakan hari bahagia kami">
-    <meta property="og:image" content="{{ asset('assets/2.jpg') }}">
-    <meta property="og:url" content="https://invity.online">
-    <meta property="og:type" content="website">
-    <meta name="description" content="Undangan pernikahan digital REGINA & SANJEEV">
-    
     <!-- Favicon standar -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/2.jpg') }}">
 
