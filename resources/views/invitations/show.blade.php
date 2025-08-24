@@ -341,7 +341,7 @@
         
         @media (max-width: 480px) {
             .event-photo img {
-                max-height: 260px;
+                max-height: 360px;
             }
         }
     </style>
