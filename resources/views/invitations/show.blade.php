@@ -153,8 +153,13 @@
         }
 
         .subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 24px;
+            /* font-family: 'Cinzel', serif; */
+            /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+            /* font-family: 'Rockwell', 'Rockwell Extra Bold', serif; */
+            /* font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; */
+            font-family: 'Monotype Corsiva', 'Comic Sans MS', cursive;
+
+            font-size: 30px;
             margin-bottom: 30px;
             color: #f5e9c6;
         }
@@ -326,7 +331,7 @@
             }
 
             .subtitle {
-                font-size: 20px;
+                font-size: 25px;
             }
 
             .detail-text {
@@ -399,7 +404,7 @@
     <!-- Invitation Page -->
     <div class="invitation-page" id="invitationPage">
         <div class="invitation-content">
-            <h1 class="title">{{ $guest->event->event_name_1 }}</h1>
+            <p class="subtitle">{{ $guest->event->event_name_1 }}</p>
             @if (!empty($guest->event->event_photo_1))
                 <div class="event-photo">
                     <img src="{{ asset('storage/' . $guest->event->event_photo_1) }}" alt="Foto Event 1">
