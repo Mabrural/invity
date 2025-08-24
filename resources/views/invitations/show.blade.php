@@ -157,7 +157,9 @@
             /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
             /* font-family: 'Rockwell', 'Rockwell Extra Bold', serif; */
             /* font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; */
-            font-family: 'Monotype Corsiva', 'Comic Sans MS', cursive;
+            /* font-family: 'Monotype Corsiva', 'Comic Sans MS', cursive; */
+            font-family: 'Broadway', 'Copperplate Gothic', 'Futura', sans-serif;
+
 
             font-size: 30px;
             margin-bottom: 30px;
