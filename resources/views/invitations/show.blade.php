@@ -519,7 +519,7 @@
 
             // Pesan default personalisasi
             const message = encodeURIComponent(
-                `Halo Bu... Saya, {{ $guest->name }}, bersedia hadir pada acara {{ $guest->event->event_name_1 }} - {{ $guest->event->event_name_2 }}.`
+                `Halo Pak/Bu... Saya, {{ $guest->name }}, bersedia hadir pada acara {{ $guest->event->event_name_1 }} - {{ $guest->event->event_name_2 }}.`
             );
 
 
