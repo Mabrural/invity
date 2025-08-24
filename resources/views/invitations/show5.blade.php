@@ -160,18 +160,32 @@
         }
 
         .details {
-            text-align: center;
+            text-align: left;
             max-width: 500px;
             margin: 0 auto 30px;
         }
 
         .detail-item {
-            margin-bottom: 25px;
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .detail-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
         }
 
         .detail-text {
             font-size: 18px;
-            text-align: center;
+            text-align: left;
         }
 
         .note {
@@ -413,13 +427,20 @@
 
             <div class="details">
                 <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
                     <div class="detail-text">
                         <strong>Day & Date</strong><br>
                         {{ $guest->event->event_date ? \Carbon\Carbon::parse($guest->event->event_date)->translatedFormat('l, d F Y') : 'Tanggal belum ditentukan' }}
                     </div>
+
                 </div>
 
                 <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
                     <div class="detail-text">
                         <strong>Time</strong><br>
                         6:00 PM - 7.00 PM : Blessing Ceremony <br>
@@ -428,6 +449,9 @@
                 </div>
 
                 <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
                     <div class="detail-text">
                         <strong>Place</strong><br>
                         {{ $guest->event->location ?? 'Lokasi belum ditentukan' }}
@@ -436,6 +460,9 @@
 
                 @if (!empty($guest->event->dresscode))
                     <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
                         <div class="detail-text">
                             <strong>Dress Code</strong><br>
                             {{ $guest->event->dresscode }}
