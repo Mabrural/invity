@@ -284,19 +284,19 @@
 
             // Format pesan sesuai dengan contoh yang diberikan, disesuaikan untuk ulang tahun & anniversary
             shareMessage.innerHTML = `
+                <strong>${eventName1}<br>${eventName2}</strong><br><br>
                 
-                Shalom, <br><br>
+                Dear Tamu Undangan,<br><br>
                 
-                We are grateful for God's goodness in our lives.<br>
-                With all due respect, we would like to invite you, ladies and gentlemen;<br><br>
-                <strong>${guestName}</strong> <br><br>
+                Salam Sejahtera Bagi Kita Semua. Tuhan membuat segala sesuatu indah pada waktunya. Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i: <strong>${guestName}</strong> untuk menghadiri acara kami.<br><br>
                 
-                Here is our invitation link:<br><br>
+                Berikut link undangan Anda:<br>
                 <strong>${invitationLink}</strong><br><br>
                 
-                It would be an honor and pleasure for us if you could attend and join our celebration event.<br>
-                <br>
-                Sanjeev & Regina
+                Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.<br>
+                Terima Kasih.<br><br>
+                
+                <em>Panitia ${eventName1}</em>
             `;
 
             document.getElementById('shareModal').style.display = 'flex';
