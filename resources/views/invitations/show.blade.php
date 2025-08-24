@@ -218,11 +218,13 @@
         .event-photo {
             margin: 20px 0;
             text-align: center;
+            width: 100%;
         }
 
         .event-photo img {
-            max-width: 100%;
-            height: 60%;
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
@@ -330,6 +332,16 @@
                 right: 15px;
                 width: 45px;
                 height: 45px;
+            }
+            
+            .event-photo img {
+                max-height: 500px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .event-photo img {
+                max-height: 260px;
             }
         }
     </style>
