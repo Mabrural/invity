@@ -23,9 +23,9 @@ class EventController extends Controller
     {
         $request->validate([
             'event_name_1'        => 'required|string|max:255',
-            'event_photo_1'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'event_photo_1'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'event_name_2'        => 'nullable|string|max:255',
-            'event_photo_2'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'event_photo_2'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'event_date'          => 'required|date',
             'location'            => 'required|string|max:255',
             'dresscode'           => 'nullable|string|max:255',
@@ -70,9 +70,9 @@ class EventController extends Controller
     {
         $request->validate([
             'event_name_1'        => 'required|string|max:255',
-            'event_photo_1'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'event_photo_1'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'event_name_2'        => 'nullable|string|max:255',
-            'event_photo_2'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'event_photo_2'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'event_date'          => 'required|date',
             'location'            => 'required|string|max:255',
             'dresscode'           => 'nullable|string|max:255',
