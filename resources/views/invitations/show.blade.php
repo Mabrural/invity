@@ -5,19 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGINA & SANJEEV</title>
-    <!-- Favicon standar -->
+
+    <!-- Favicon untuk browser -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/2.jpg') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/2.jpg') }}">
 
-    <!-- PNG fallback -->
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/2.jpg') }}">
+    <!-- PNG Favicon berbagai ukuran -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/2.jpg') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/2.jpg') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('assets/2.jpg') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/2.jpg') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('assets/2.jpg') }}">
 
-    <!-- Apple Touch Icon (untuk iOS) -->
+    <!-- Apple Touch Icon (untuk iOS & iPadOS) -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/2.jpg') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/2.jpg') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/2.jpg') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/2.jpg') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/2.jpg') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/2.jpg') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/2.jpg') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/2.jpg') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/2.jpg') }}">
 
-    <!-- Android / Chrome -->
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/2.jpg') }}">
+    <!-- Windows / Microsoft Tile -->
+    <meta name="msapplication-TileImage" content="{{ asset('assets/2.jpg') }}">
+    <meta name="msapplication-TileColor" content="#d4af37">
 
+    <!-- Android / PWA -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- Preconnect Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
