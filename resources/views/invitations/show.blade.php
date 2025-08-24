@@ -223,7 +223,7 @@
 
         .event-photo img {
             width: 100%;
-            max-height: 500px;
+            max-height: 600px;
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
