@@ -4,7 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invity - Undangan Digital</title>
+    <title>REGINA & SANJEEV</title>
+    <!-- Favicon standar -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/2.jpg') }}">
+
+    <!-- PNG fallback -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/2.jpg') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/2.jpg') }}">
+
+    <!-- Apple Touch Icon (untuk iOS) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/2.jpg') }}">
+
+    <!-- Android / Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/2.jpg') }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -333,12 +346,12 @@
                 width: 45px;
                 height: 45px;
             }
-            
+
             .event-photo img {
                 max-height: 500px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .event-photo img {
                 max-height: 360px;
