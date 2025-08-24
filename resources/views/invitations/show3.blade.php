@@ -215,16 +215,60 @@
             margin-top: 20px;
         }
 
+        /* PERBAIKAN BAGIAN GAMBAR - STYLING BARU */
         .event-photo {
-            margin: 20px 0;
+            margin: 25px 0;
             text-align: center;
+            position: relative;
         }
 
         .event-photo img {
-            max-width: 100%;
-            height: 60%;
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            object-fit: cover;
             border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            border: 2px solid #d4af37;
+            transition: all 0.4s ease;
+        }
+
+        .event-photo:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Efek dekoratif untuk gambar */
+        .event-photo::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 15px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Frame khusus untuk gambar acara */
+        .photo-frame {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .photo-frame::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+            pointer-events: none;
         }
 
         /* Kontrol Musik */
@@ -331,6 +375,21 @@
                 width: 45px;
                 height: 45px;
             }
+
+            /* Responsivitas untuk gambar */
+            .event-photo img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .event-photo img {
+                height: 180px;
+            }
+            
+            .event-photo::before {
+                display: none; /* Sembunyikan efek dekoratif pada perangkat sangat kecil */
+            }
         }
     </style>
 </head>
@@ -371,13 +430,17 @@
             <h1 class="title">{{ $guest->event->event_name_1 }}</h1>
             @if (!empty($guest->event->event_photo_1))
                 <div class="event-photo">
-                    <img src="{{ asset('storage/' . $guest->event->event_photo_1) }}" alt="Foto Event 1">
+                    <div class="photo-frame">
+                        <img src="{{ asset('storage/' . $guest->event->event_photo_1) }}" alt="Foto Event 1">
+                    </div>
                 </div>
             @endif
             <p class="subtitle">{{ $guest->event->event_name_2 }}</p>
             @if (!empty($guest->event->event_photo_2))
                 <div class="event-photo">
-                    <img src="{{ asset('storage/' . $guest->event->event_photo_2) }}" alt="Foto Event 2">
+                    <div class="photo-frame">
+                        <img src="{{ asset('storage/' . $guest->event->event_photo_2) }}" alt="Foto Event 2">
+                    </div>
                 </div>
             @endif
 
