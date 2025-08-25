@@ -423,7 +423,7 @@
                 <div class="detail-item">
                     <div class="detail-text">
                         <strong>Date</strong><br>
-                        {{ $guest->event->event_date ? \Carbon\Carbon::parse($guest->event->event_date)->translatedFormat('l, d F Y') : 'Tanggal belum ditentukan' }}
+                        {{ $guest->event->event_date ? \Carbon\Carbon::parse($guest->event->event_date)->translatedFormat('l, F d, Y') : 'Tanggal belum ditentukan' }}
                     </div>
                 </div>
 
