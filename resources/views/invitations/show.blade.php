@@ -393,7 +393,7 @@
         <div class="content">
             <br>
             <p class="mb-2" style="color: rgb(212, 178, 103);">Dear Mr. / Mrs. / Brother / Sister,</p><br>
-            <h1 class="to-name" style="font-family: 'Cinzel Decorative', 'Poiret One', 'Monoton', sans-serif;">
+            <h1 class="to-name" style="font-family: 'Monotype Corsiva', 'Comic Sans MS', cursive">
                 {{ $guest->name }}</h1>
             <p class="welcome-text text-sm">
                 We are honored to invite you to attend our special event. Please open the invitation below for more
