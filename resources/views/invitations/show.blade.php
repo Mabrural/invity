@@ -90,7 +90,8 @@
             font-family: 'Playfair Display', serif;
             font-size: 36px;
             margin-bottom: 20px;
-            color: #d4af37;
+            /*color: #d4af37;*/
+            color: rgb(212, 178, 103);
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
@@ -101,6 +102,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            color: rgb(212, 178, 103);
         }
 
         .btn-open {
@@ -390,7 +392,7 @@
     <div class="landing-page" id="landingPage">
         <div class="content">
             <br>
-            <p class="mb-2">Dear Mr. / Mrs. / Brother / Sister,</p><br>
+            <p class="mb-2" style="color: rgb(212, 178, 103);">Dear Mr. / Mrs. / Brother / Sister,</p><br>
             <h1 class="to-name" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                 {{ $guest->name }}</h1>
             <p class="welcome-text text-sm">
